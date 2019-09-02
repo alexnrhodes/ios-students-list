@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CX1-Jf-i7U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,6 +35,9 @@
                                                     <segment title="First Name"/>
                                                     <segment title="Last Name "/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="sortSegmentedControl:" destination="CX1-Jf-i7U" eventType="valueChanged" id="3Vw-QV-0wn"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
@@ -55,6 +58,9 @@
                                                     <segment title="Web"/>
                                                     <segment title="UX"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="filterSegmentedControl:" destination="CX1-Jf-i7U" eventType="valueChanged" id="oiL-2c-L4c"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>

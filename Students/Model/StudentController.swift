@@ -20,12 +20,14 @@ class StudentController {
         
         // Constantly checking the information in the file, to update the view in accordance to the user.
         // The more queues added to the core, the more work the core has to do.
-        let bgQueue = DispatchQueue(label: "studentQueue", attributes: .concurrent)
         
-        bgQueue.async {
-            // The work we want to complete in the background thread.
+        
+        let bgQueue = DispatchQueue(label: "studentQueue", attributes: .concurrent) // creating the background queue
+        
+        bgQueue.async { // The work we want to complete in the background thread. - .async allows to run in a way that doesn't interrupt other threads.
+            
             let fm = FileManager.default
-            guard let url = self.persistentFileURL, // computed property
+            guard let url = self.persistentFileURL, // grab our file = computed property
                 fm.fileExists(atPath: url.path) else {return} // gets the path?
             
             // If that works(guard) DO this
@@ -37,7 +39,7 @@ class StudentController {
                 let data = try Data(contentsOf: url) // converting contents of json file to Data
                 let decoder = JSONDecoder() // decoded using a cool decoder, lots less work than used to be
                 let students = try decoder.decode([Student].self, from: data) // is suppose to retrieve an array of the student data from JSON
-                completion(students, nil) // all the work we need to do is complete. Completion is the parameter!
+                completion(students, nil) // completion is the parameter! we are now ready to run the code we saved in our MainVC by calling the parameter completition. Like calling a method!
             
             // If we do have that fatal error we will catch it and execute this code. An uncaught error is a crash!
             } catch {
